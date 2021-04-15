@@ -23,7 +23,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Dark Mode
-- [x] More supported currency (US Dollar, Japanese Yen, English Pound and Philippine Peso
+- [x] More supported currencies (US Dollar, Japanese Yen, English Pound and Philippine Peso)
 
 ## Video Walkthrough
 
