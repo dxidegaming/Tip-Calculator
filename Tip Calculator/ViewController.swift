@@ -23,16 +23,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         //list the supproted currencies
+        listCurrencies.append(Currency(currName: "locale Currency", cSym: "$$", gSize: 3))
         listCurrencies.append(Currency(currName: "US Dollar", cSym: "$", gSize: 3))
         listCurrencies.append(Currency(currName: "Japanese Yen", cSym: "¥", gSize: 4))
         listCurrencies.append(Currency(currName: "English Pound", cSym: "£", gSize: 3))
         listCurrencies.append(Currency(currName: "Philippine Peso", cSym: "₱", gSize: 3))
-        
-        //to show the correct format of rate percentage
-        
         
         self.title = "Tip Calculator"
         // Do any additional setup after loading the view.
@@ -63,6 +60,13 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //print("view did appear")
+        
+        //Tip control event listener
+        tipControl.addTarget(self, action:  #selector(sliderValUpdate(_:)), for: .valueChanged)
+        
+        //Tip rate slider event listener
+        tipPercSlider.addTarget(self, action: #selector(calculateTipWithSliderVal), for: .valueChanged)
+        billAmountTextField.becomeFirstResponder()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,6 +78,8 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         //print("view did disappear")
     }
+    
+    let localeCurrency = Locale.current
         
     @IBAction func calculateTip(_ sender: Any){
         let tipPercentages = [currDefaults[0], currDefaults[1], currDefaults[2]]
@@ -85,7 +91,11 @@ class ViewController: UIViewController {
         numberFormatter.decimalSeparator = "."
         numberFormatter.groupingSize = currCurrency.gSize
         numberFormatter.groupingSeparator = ","
-        numberFormatter.currencySymbol = currCurrency.cSym
+        if customCurrency{
+            numberFormatter.currencySymbol = currCurrency.cSym
+        } else {
+            numberFormatter.currencySymbol = localeCurrency.currencySymbol
+        }
         
         //Get bill amount from text field input
         let bill = Double(billAmountTextField.text!) ?? 0
@@ -108,14 +118,10 @@ class ViewController: UIViewController {
         let formattedTotal = numberFormatter.string(from: NSNumber(value: total))
         totalLabel.text = formattedTotal
         
-        //Tip control event listener
-        tipControl.addTarget(self, action:  #selector(sliderValUpdate(_:)), for: .valueChanged)
+        
         
         //Bill amount event listener
         billAmountTextField.addTarget(self, action: #selector(calculateTip), for: .editingChanged)
-        
-        //Tip rate slider event listener
-        tipPercSlider.addTarget(self, action: #selector(calculateTipWithSliderVal), for: .valueChanged)
     }
     
     
@@ -128,7 +134,11 @@ class ViewController: UIViewController {
         numberFormatter.decimalSeparator = "."
         numberFormatter.groupingSize = currCurrency.gSize
         numberFormatter.groupingSeparator = ","
-        numberFormatter.currencySymbol = currCurrency.cSym
+        if customCurrency{
+            numberFormatter.currencySymbol = currCurrency.cSym
+        } else {
+            numberFormatter.currencySymbol = localeCurrency.currencySymbol
+        }
         
         //Get bill amount from text field input
         let bill = Double(billAmountTextField.text!) ?? 0

@@ -47,6 +47,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newRateLeft.becomeFirstResponder()
         //to check if dark mode is enabled
         if dm.isDarkM {
             overrideUserInterfaceStyle = .dark
@@ -54,6 +55,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             overrideUserInterfaceStyle = .light
         }
+        
         //to show default rates
         defRateLeft.text = String(currDefaults[0] * 100)
         defRateMid.text = String(currDefaults[1] * 100)
@@ -88,9 +90,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         let currentIndex = dropDownCurr.indexPathForSelectedRow?.row
         
         currCurrency = listCurrencies[currentIndex ?? defaultIndex]
-        if currentIndex != nil {
+        if currentIndex != nil && currentIndex != 0{
             defaultIndex = currentIndex ?? 0
+            customCurrency = true
+        } else {
+            customCurrency = false
         }
+        viewDidLoad()
     }
 
     //to keep track of total currencies supported

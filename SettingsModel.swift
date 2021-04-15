@@ -33,18 +33,7 @@ class DarkMode {
         self.isDarkM = isDarkM
     }
 }
-
-/*class NewDefaultRate {
-    var leftRate: Double
-    var midRate: Double
-    var rightRate: Double
-    
-    init(leftRate: Double, midRate: Double, rightRate: Double){
-        self.leftRate = leftRate
-        self.midRate = midRate
-        self.rightRate = rightRate
-    }
-}*/
+var customCurrency = false
 //for the dark mode boolean
 var dm = DarkMode(isDarkM: false)
 
