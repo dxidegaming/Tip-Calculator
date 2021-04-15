@@ -35,7 +35,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Synching the UISlider with the default rates when selected was a challange. Listing an Array on UITextView was also confusing.
 
 ## License
 
