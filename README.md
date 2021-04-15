@@ -24,6 +24,7 @@ The following **additional** features are implemented:
 
 - [x] Dark Mode
 - [x] More supported currencies (US Dollar, Japanese Yen, English Pound and Philippine Peso)
+- [x] Tip rate slider for custom values
 
 ## Video Walkthrough
 
