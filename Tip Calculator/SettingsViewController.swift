@@ -93,7 +93,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         if currentIndex != nil && currentIndex != 0{
             defaultIndex = currentIndex ?? 0
             customCurrency = true
-        } else {
+        } else if currentIndex != nil && customCurrency == false{
+            currCurrency = listCurrencies[defaultIndex]
+        } else if currentIndex == 0{
             customCurrency = false
         }
         viewDidLoad()
