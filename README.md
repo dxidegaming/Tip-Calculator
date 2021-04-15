@@ -1,6 +1,6 @@
-# Pre-work - *Tip Calculator*
+# Pre-work - *Edison easy tip*
 
-**Edison Tips** is a tip calculator application for iOS.
+**Edison easy tip** is a tip calculator application for iOS.
 
 Submitted by: **Edison Enerio**
 
@@ -10,17 +10,20 @@ Time spent: **24** hours spent in total
 
 The following **required** functionality is complete:
 
-* [ ] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [ ] User can select between tip percentages by tapping different values on the segmented control and the tip value is updated accordingly
+* [x] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [x] User can select between tip percentages by tapping different values on the segmented control and the tip value is updated accordingly
 
 The following **optional** features are implemented:
 
-* [ ] Using locale-specific currency and currency thousands separators.
+* [ ] UI animations
+* [ ] Remembering the bill amount across app restarts (if <10mins)
+* [x] Using locale-specific currency and currency thousands separators.
+* [ ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
 
-* [ ] Dark Mode
-* [ ] More supported currencies (US Dollars, Japanese Yen, English Pound and Philippine Peso)
+- [x] Dark Mode
+- [x] More supported currency (US Dollar, Japanese Yen, English Pound and Philippine Peso
 
 ## Video Walkthrough
 
@@ -32,7 +35,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Synching the slider with the default values whenever one is pressed was a challenge. Listing an Array using UITableView was also confusing.
+Describe any challenges encountered while building the app.
 
 ## License
 
